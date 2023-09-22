@@ -7,9 +7,8 @@
         public string Title { get; set; }
         public double Price { get; set; }
 
-        public Book(int id, string title, double price)
+        public Book(string title, double price)
         {
-            Id = id;
             Title = title;
             Price = price;
         }

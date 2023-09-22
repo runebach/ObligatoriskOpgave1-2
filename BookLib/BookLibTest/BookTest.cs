@@ -7,9 +7,9 @@ namespace BookLibTest
     public class BookTest
     {
         public Book TestBook;
-        public Book BookShortTitle = new Book(1, "lo", 500);
-        public Book BookNullTitle = new Book(1, null, 500);
-        public Book BookGood = new Book(1, "test", 500);
+        public Book BookShortTitle = new Book("lo", 500) { Id = 1};
+        public Book BookNullTitle = new Book(null, 500) { Id = 1 };
+        public Book BookGood = new Book("test", 500) { Id = 1 };
 
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace BookLibTest
         [DataRow("supersejtesttitel")]
         public void ValidateGoodTitles(string title)
         {
-            TestBook = new Book(1, title, 500);
+            TestBook = new Book(title, 500) { Id = 1 };
             TestBook.ValidateAll();
         }
 
@@ -38,7 +38,7 @@ namespace BookLibTest
         [DataRow(1201)]
         public void ValidateWrongPriceTest(double price)
         {
-            TestBook = new Book(1, "test", price);
+            TestBook = new Book("test", price) { Id = 1 };
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => TestBook.ValidateAll());
 
         }
@@ -49,7 +49,7 @@ namespace BookLibTest
         [DataRow(1200)]
         public void ValidateGoodPriceTest(double price)
         {
-            TestBook = new Book(1, "test", price);
+            TestBook = new Book("test", price) { Id = 1 };
             TestBook.ValidateAll();
         }
 
