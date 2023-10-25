@@ -61,7 +61,7 @@ namespace BookLibTest
             Book bookGood = new Book() {Title = "Pathfinder Second Edition: Core Rulebook", Price = 699 };
             _bookRepo.AddBook(bookGood);
             Assert.AreEqual("Pathfinder Second Edition: Core Rulebook", tempBooks.Last().Title); // Tjekker om sidste bogs titel matcher
-            Assert.AreEqual(5, tempBooks.Count()); // Tjekker om sidste bogs pris matcher
+            Assert.AreEqual(5, tempBooks.Count()); // Tjekker om mængden af bøger er korrekt efter add
 
             Book bookNullTitle = new Book() {Title = null, Price = 500 };
             Assert.ThrowsException<ArgumentNullException>(() => _bookRepo.AddBook(bookNullTitle)); // Tjekker om den rigtige exception bliver kastet med null title

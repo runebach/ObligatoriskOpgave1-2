@@ -18,10 +18,26 @@
 
         }
 
-        public override string ToString()
+        public override string ToString() // vigtig override
         {
             return $"{Id} {Title} {Price}";
         }
+
+        public override bool Equals(object? obj) // vigtig override
+        {
+            return obj is Book book &&
+                   Id == book.Id &&
+                   Title == book.Title &&
+                   Price == book.Price;
+        }
+
+        public override int GetHashCode() // vigtig override
+        {
+            return HashCode.Combine(Id, Title, Price);
+        }
+
+
+
 
         public void ValidateTitle()
         {
@@ -48,6 +64,7 @@
             ValidateTitle();
             ValidatePrice();
         }
+
 
     }
 }

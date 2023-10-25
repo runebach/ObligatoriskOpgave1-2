@@ -58,5 +58,16 @@ namespace BookLibTest
         {
             Assert.AreEqual("1 test 500", BookGood.ToString());
         }
+
+
+        [TestMethod]
+        public void HashAndEqualTest()
+        {
+            Book copyBook = new Book("test", 500) { Id = 1 };
+            Assert.AreEqual(BookGood.Equals(copyBook), true);
+
+        }
+
+
     }
 }
