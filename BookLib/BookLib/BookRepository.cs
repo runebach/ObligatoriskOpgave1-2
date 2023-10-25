@@ -11,16 +11,16 @@ namespace BookLib
     {
 
         private List<Book> _books;
-        private int _nextId = 5;
+        private int _nextId = 1;
 
         public BookRepository()
         {
             _books = new List<Book>() 
             { 
-                new Book("War of the Worlds", 500) {Id = 1},
-                new Book("We", 239) {Id = 2},
-                new Book("Dune", 599) {Id = 3},
-                new Book("Shadows of Treachery", 299) {Id = 4}
+                new Book("War of the Worlds", 500) {Id = _nextId++},
+                new Book("We", 239) {Id = _nextId++},
+                new Book("Dune", 599) {Id = _nextId++},
+                new Book("Shadows of Treachery", 299) {Id = _nextId++}
             };
 
         }
